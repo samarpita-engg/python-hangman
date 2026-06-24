@@ -13,15 +13,26 @@ for letter in chosen_word:
     placeholder += "_"
 
 print(placeholder)
+correct_letters = []
 
-guess = input("Guess a letter that might be in the word:\n").lower()
+game_over = False 
 
-display = ""
+while not game_over:
+    guess = input("Guess a letter that might be in the word:\n").lower()
 
-for letter in chosen_word:
-    if guess == letter:
-        display += letter
-    else:
-        display += "_"
+    display = ""
 
-print(display)
+    for letter in chosen_word:
+        if guess == letter:
+            display += letter
+            correct_letters.append(guess)
+        elif letter in correct_letters:
+            display += letter
+        else:
+            display += "_"
+
+    print(display)
+
+    if "_" not in display:
+        game_over = True
+        print("You win.") 
