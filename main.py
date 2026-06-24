@@ -1,8 +1,68 @@
 print("Welcome to Hangman!")
 
+stages = [r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 import random
 
 word_list = ["aardvark", "baboon", "camel", "clock", "music", "weekend"]
+
+lives = 6
 
 chosen_word = random.choice(word_list)
 print(chosen_word)
@@ -31,8 +91,16 @@ while not game_over:
         else:
             display += "_"
 
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            game_over = True
+            print("You lose.")
+            
     print(display)
 
     if "_" not in display:
         game_over = True
         print("You win.") 
+
+print(stages[lives])
