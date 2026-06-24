@@ -7,10 +7,21 @@ word_list = ["aardvark", "baboon", "camel", "clock", "music", "weekend"]
 chosen_word = random.choice(word_list)
 print(chosen_word)
 
+placeholder = ""
+
+for letter in chosen_word:
+    placeholder += "_"
+
+print(placeholder)
+
 guess = input("Guess a letter that might be in the word:\n").lower()
+
+display = ""
 
 for letter in chosen_word:
     if guess == letter:
-        print("Right")
+        display += letter
     else:
-        print("Wrong")
+        display += "_"
+
+print(display)
