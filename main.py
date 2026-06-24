@@ -1,12 +1,12 @@
 print("Welcome to Hangman!")
-from hangman_art import logo
 
-print(logo)
-import random
+import random 
 
 from hangman_words import word_list
 
-from hangman_art import stages
+from hangman_art import stages, logo
+
+print(logo)
 
 lives = 6
 
@@ -17,14 +17,17 @@ placeholder = ""
 
 for letter in chosen_word:
     placeholder += "_"
-
-print(placeholder)
-correct_letters = []
+print("Word to guess: " + placeholder)
 
 game_over = False 
+correct_letters = []
 
 while not game_over:
-    guess = input("Guess a letter that might be in the word:\n").lower()
+    print("************************************<???>/6 LIVES LEFT************************************")
+    guess = input("Guess a letter: ").lower()
+
+    if guess in correct_letters:
+        print(f"You've already guessed {guess}")
 
     display = ""
 
