@@ -1,66 +1,12 @@
 print("Welcome to Hangman!")
+from hangman_art import logo
 
-stages = [r'''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', r'''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', r'''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', r'''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========
-''', r'''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', r'''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', r'''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
+print(logo)
 import random
 
-word_list = ["aardvark", "baboon", "camel", "clock", "music", "weekend"]
+from hangman_words import word_list
+
+from hangman_art import stages
 
 lives = 6
 
